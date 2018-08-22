@@ -1,0 +1,32 @@
+<?xml version="1.0" ?>
+<data>
+  <!-- Main Video -->
+  <video id="0_crv76sa2" title="Ka'upu Fledgling" thumbnail="#" content="#">
+    <relatedvideos>
+      <relate id="0_crv76sa2" title="Ka'upu Fledgling" thumbnail="#" content="#"/>
+      <relate id="0_yw1cd72x" title="Papahanaumokuakea Marine National Monument" thumbnail="#" content="#"/>
+      <relate id="0_mpoq358l" title="Halemaumau Lava Lake" thumbnail="#" content="#"/>
+    </relatedvideos>
+    <cuepoints>
+      <cuepoint id="VID01" time="00:00:20" src="media/Slides/noslide.png"/>
+    </cuepoints>
+    <resources>
+      <resource id="1" name="Handout: Sample PDF" src="media/Handouts/samplePDF.pdf"/>
+    </resources>
+  </video>
+  <!-- Related Videos -->
+  <video id="0_mpoq358l" title="Halemaumau Lava Lake" thumbnail="#" content="#">
+    <cuepoints>
+      <cuepoint id="VID01" time="00:00:00" src="media/Slides/noslide.png"/>
+    </cuepoints>
+    <resources/>
+    <supplements/>
+  </video>
+  <video id="0_yw1cd72x" title="Papahanaumokuakea Marine National Monument" thumbnail="#" content="#">
+    <cuepoints>
+      <cuepoint id="VID01" time="00:00:00" src="media/Slides/noslide.png"/>
+    </cuepoints>
+    <resources/>
+    <supplements/>
+  </video>
+</data>

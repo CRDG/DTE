@@ -1,0 +1,396 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <head>
+        <title>Kaltura Player Sample</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <!-- NOTE -->
+        <meta name="apple-mobile-web-app-capable" content="yes">
+
+        <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="KalturaPlayer/css/style.css"/>
+        <link rel="stylesheet" type="text/css" href="KalturaPlayer/css/kaltura_styles.css"/>
+
+        <script type="text/javascript" src="KalturaPlayer/libs/jquery-1.11.3.min.js" charset="utf-8"></script>
+        <script type="text/javascript" src="KalturaPlayer/libs/jquery.poshytip.min.js" charset="utf-8"></script>
+
+        <script type="text/javascript" src="https://cdnapisec.kaltura.com/html5/html5lib/v2.9/mwEmbedLoader.php"></script>
+        <script type="text/javascript" src="https://cdnapisec.kaltura.com/html5/html5lib/v2.9/docs/js/doc-bootstrap.js"></script>
+
+        <script type="text/javascript" src="KalturaPlayer/config.js"></script>
+        <script type="text/javascript" src="KalturaPlayer/js/untils.js" charset="utf-8"></script>
+
+
+        <script type="text/javascript" src="KalturaPlayer/js/helper_data.js" charset="utf-8"></script>
+        <script type="text/javascript" src="KalturaPlayer/js/helper_libs.js" charset="utf-8"></script>
+        <script type="text/javascript" src="KalturaPlayer/js/fix_tablet.js" charset="utf-8"></script>
+        <script type="text/javascript" src="KalturaPlayer/js/helper_normal.js" charset="utf-8"></script>
+
+        <script type="text/javascript" src="KalturaPlayer/js/control.js" charset="utf-8"></script>
+
+    </head>
+    <body>
+
+        <script>
+            window.addEventListener("resize", function () {
+                if (__fullscreenMode == true) {
+                    scaleFullScreen();
+                }
+                else 
+                    scaleVideoWrapper();
+    
+            }, false);
+            window.resize();
+        </script>
+
+        <div class="scaleContainer">
+            <div id="wrap">
+                <div id="container" class="clearfix">
+                    <div id="media" style="position: relative">
+
+                        <!-- VIDEO CONTROLS - NORMAL MODE - BEG -->
+                        <div id="normalDIV">
+                            <div id="slidePointsDuration">
+                            </div>
+                            <!-- Part 1: top menu -->
+                            <div class="topMenu">
+                                <div class="left_menu">
+                                    <nav id="mnMenu">
+                                        <ul>
+                                            <li><a href="#" class="icon"><img src="KalturaPlayer/images/menu.png"></a>
+                                                <ul class="sessions"></ul>
+                                            </li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                                <div class="left_logo">
+                                    <a href="#"><img src="KalturaPlayer/images/logo.png"></a>
+                                </div>
+                                <div class="left_title" id="pageTitle">
+                                    <div style="padding-top: 10px">
+                                        Loading.. Please wait!
+                                    </div>
+                                </div>
+
+                                <div class="right" id="backNextMenu">
+                                </div>
+                            </div>
+                            <!-- Part 2: right menu -->
+                            <div class="rightMenu">
+                                <a href="#" class="miniPanel"><img src="KalturaPlayer/images/icon_menu_right.png"></a>
+                                <div class="panel" style="display: none">
+                                    <div class="title">
+                                        <a href="#">Resources <img src="KalturaPlayer/images/arrow_close.png"></a>
+                                    </div>
+                                    <div class="tab">
+                                        <a id="tab_0" href="javascript:normalChangeResoureTab('0')" class="active" style="margin: 0px 3px 0px 7px">Current<br> Slides</a>
+                                        <a id="tab_1" href="javascript:normalChangeResoureTab('1')" class="" style="margin: 0px 3px 0px 0px">Other<br> Resources</a>
+                                        <a id="tab_2" href="javascript:normalChangeResoureTab('2')" class="">Supple<br>-ments</a>
+                                        <div style="clear: both"></div>
+                                    </div>
+                                    <div class="content" id='tab_content_0'>
+                                        <div class="button btnUpSlides" id="btnUpSlides">
+                                            <a href="javascript:normalSlidesDoUp()"><img src="KalturaPlayer/images/bt_up.png"></a>
+                                        </div>
+                                        <div id="slides"></div>
+                                        <div class="button btnDownSlides" id="btnDownSlides">
+                                            <a href="javascript:normalSlidesDoDown()"><img src="KalturaPlayer/images/bt_down.png"></a>
+                                        </div>
+                                    </div>
+
+                                    <div class="content" id='tab_content_1' style="display:none">
+
+                                        <div class="button btnUpResource" id="btnUpResource">
+                                            <a href="javascript:normalResourcesDoUp()"><img src="KalturaPlayer/images/bt_up.png"></a>
+                                        </div>
+                                        <div id="otherResources"></div>
+                                        <div style="clear: both"></div>
+                                        <div class="button btnDownResource" id="btnDownResource">
+                                            <a href="javascript:normalResourcesDoDown()"><img src="KalturaPlayer/images/bt_down.png" style="margin-top: 5px"></a>
+                                        </div>
+                                    </div>
+                                    <div class="content" id='tab_content_2' style="display:none">
+                                        <div class="button btnUpSupplements">
+                                            <a href="javascript:normalSupplementsDoUp()"><img src="KalturaPlayer/images/bt_up.png"></a>
+                                        </div>
+                                        <div id="Supplements"></div>
+                                        <div style="clear: both"></div>
+                                        <div class="button btnDownSupplements">
+                                            <a href="javascript:normalSupplementsDoDown()"><img src="KalturaPlayer/images/bt_down.png" style="margin-top: 5px"></a>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="videosButton">
+                                <a href="#" class="videoPanel" title="Videos"><img src="KalturaPlayer/images/icon_menu_right_2.png"></a>
+                            </div>
+
+                            <!-- Part 3: bottom bar -->
+                            <div class="videosGridOverlay">
+                                &nbsp;
+                            </div>
+                            <div class="videosGrid">
+                                <div class="video_items"></div>
+                            </div>
+
+                            <div class="bottomBar">
+                                <div class="inner">
+                                    <div class="col1" id="videoBack">
+                                        <p>
+                                            Videos:
+                                        </p>
+                                        <a href="#"><img src="KalturaPlayer/images/bt_bottom_left.png"></a>
+                                    </div>
+                                    <div class="col2 col_active"  id="videoCurrent">
+                                        <a href=""><img src=""></a>
+                                        <p>
+                                            Videos 1:<br>
+                                                Approach 1 - Perimeter + 4
+                                        </p>
+                                    </div>
+                                    <div class="col3">
+                                        <a href='javascript:normalOpenVideosGrid()'><img src="KalturaPlayer/images/bt_menu.png"></a>
+                                        <p>
+                                            Select a <br>
+                                                Video
+                                        </p>
+                                    </div>
+                                    <div class="col4" id="videoNext">
+
+                                    </div>
+                                    <div class="col5" id="videoNextBt">
+
+                                    </div>
+                                    <div style="clear:both"></div>
+                                </div>
+
+                            </div>
+
+                            <!-- Part 4: slidesMode controls -->
+                            <div class="slidesModeControls">
+
+                                <div id="panelOption2">
+                                    <div class="title">Viewing <br> options</div>
+                                    <div class="view">
+                                        <a href="javascript:normalChangeSlideModeMenu(1)"><img class="img1 active" src="KalturaPlayer/images/full.png"></a>
+                                    </div>
+                                    <div class="view">
+                                        <a href="javascript:normalChangeSlideModeMenu(2)"><img class="img2" src="KalturaPlayer/images/pip.png"></a>
+                                    </div>
+                                    <div class="view">
+                                        <a href="javascript:normalChangeSlideModeMenu(3)"><img class="img3" src="KalturaPlayer/images/split.png"></a>
+                                    </div>
+                                </div>
+
+                                <div class="btSlideMode">
+                                    <a href="#" class="full2" title="Fullscreen" data-show-tooltip="true"><img src="KalturaPlayer/images/fullscreen2.png"></img></a>
+                                    <a href="#" class="setting" title="Viewing options" data-show-tooltip="true"><img src="KalturaPlayer/images/settings.png"></img></a>
+                                    <a href="#" class="switchMode" title="Switch" data-show-tooltip="true"><img src="KalturaPlayer/images/switchMode.png"></img></a>
+                                </div>
+                                <div id="slideCurrentSmall">
+                                </div>
+                                <div id="slideCurrentLarge">
+                                </div>
+                            </div>
+
+                        </div>
+                        <!-- VIDEO CONTROLS - NORMAL MODE - END -->
+                        <br>
+                            <div id="videoContent"></div>
+                            <div style="clear:both"></div>
+                            <div id="footer"></div>
+
+
+                            <div id="loading">
+                                <img src="KalturaPlayer/images/loading2.gif" style="padding-top: 200px">
+                            </div>
+
+                            <object id="player" style="position: absolute;top: 0px">
+                                <script type="text/javascript">
+                                </script>
+                                <noscript>
+                                    <div>The media player requires a JavaScript enabled browser.</div>
+                                </noscript>
+                            </object>
+
+
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+
+
+
+      <div id="myModal" class="modal modal-lg fade" tabindex="-1" role="dialog">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Slide Viewer</h4>
+              </div>
+              <div class="modal-body">
+                <iframe src="" class="content-iframe"></iframe>
+              </div>
+            </div><!-- /.modal-content -->
+          </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+
+      <div id="myModalPDF" class="modal modal-lg fade" tabindex="-1" role="dialog">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">PDF Viewer</h4>
+              </div>
+              <div class="modal-body">
+                <iframe src="" class="content-iframe"></iframe>
+              </div>
+            </div><!-- /.modal-content -->
+          </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+
+        <div style="clear:both"></div>
+        <script>
+
+            var theSession = {
+                module: "Module",
+                session: "Session1",
+                part: "part01",
+                video: ""
+            }
+            parseUrl(theSession);
+
+            var objBody = null;
+
+            if (objBody == null) {
+                objBody = $("html").clone(true, true);
+            }
+
+            function displayPlayer(theSession) {
+                createCookie("paggingIndex", 0, 1);
+                createCookie("slidemode", "1", 1);
+                createCookie("fullscreen", "false", 1);
+                createCookie("globalIsFisrtRunning", "0", 1);
+
+                if(DEVICE_PLATFORM != "iphone" &&  DEVICE_PLATFORM != "android")
+                    $("#loading").show(); // KDF
+
+
+                var html5Player = new HTML5VideoPlayer("player", kWidget);
+                html5Player.fillData(theSession);
+                html5Player.setEntryId(theSession["video"]);
+                html5Player.initPlayer();
+
+                createCookie(theSession.video, "1", 1);
+
+                if( readCookie("globalSlideMode") != null )
+                    globalSlideMode = readCookie("globalSlideMode");
+                normalChangeSlideMode(globalSlideMode);
+            }
+
+            var lastVideoBottomBarIndex = -1;
+
+            function changeVideoBottomBar(link, index) {
+                lastVideoBottomBarIndex = index;
+                changeVideo(link);
+            }
+
+            function changeVideo(link) {
+                var res = link.split("/");
+
+                theSession.module = res[0];
+                theSession.session = res[1];
+                theSession.part = res[2];
+                theSession.video = res[3];
+
+                globalSlidesArray = null;
+                globalRelateArray = null;
+                globalSlidesPageCurrent = 0;
+                globalResourcesArray = null;
+                globalSupplementsArray = null;
+
+                globalVideosArray = null;
+                globalOtherResourcePage = 0;
+                globalSupplementsPage = 0;
+                globalPlayingSecond = 0;
+                globalSlideIndex = 0;
+                duration_second = 0;
+
+                $("#normalDIV .videosGrid").hide();
+                $("#normalDIV .videosGridOverlay").hide();
+                $("#normalDIV .rightMenu .panel").hide();
+
+                displayPlayer(theSession);
+            }
+
+            displayPlayer(theSession);
+
+            /*** INIT VIDEO PLAYER - END ***/
+
+
+        </script>
+        <script>
+            $(function () {
+                $('#normalDIV a.setting').poshytip({
+                    className: 'tip-twitter',
+                    alignTo: 'target',
+                    alignX: 'center',
+                    offsetY: 11,
+                    allowTipHover: true,
+                    slide: false,
+                    showDelayed: 7
+                });
+                $('#normalDIV a.switchMode').poshytip({
+                    className: 'tip-twitter',
+                    alignTo: 'target',
+                    alignX: 'center',
+                    offsetY: 11,
+                    allowTipHover: true,
+                    slide: false,
+                    showDelayed: 7
+                });
+                $('#normalDIV a.full2').poshytip({
+                    className: 'tip-twitter',
+                    alignTo: 'target',
+                    alignX: 'center',
+                    offsetY: 11,
+                    allowTipHover: true,
+                    slide: false,
+                    showDelayed: 7
+                });
+
+                $('#fullscreenDIV a.setting').poshytip();
+                $('#fullscreenDIV a.switchMode').poshytip();
+                $('#fullscreenDIV a.full2').poshytip();
+
+            });
+
+        </script>
+
+        <script>
+            var curDate = new Date();
+            $("#curYear").text(curDate.getFullYear());
+        </script>
+
+
+        <script type="text/javascript" src="KalturaPlayer/js/scale.js" charset="utf-8"></script>
+        <script type="text/javascript" src="KalturaPlayer/js/fix_ui.js"></script>
+
+        <script>
+            if (deploy_env == "ctools") {
+
+                var scriptTag = " ";
+
+                scriptTag = "<script>" + scriptTag + "<" + "/script>";
+            }
+
+
+
+        </script>
+
+
+    </body>
+</html>

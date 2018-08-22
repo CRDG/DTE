@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data>
+ <sessions>
+  <session name="Session 1" path="Session1">
+   <part name="Sample Videos 1" path="part01" title="Sample Videos 1"/>
+   <part name="Sample Videos 2" path="part02" title="Sample Videos 2"/>
+  </session>
+ </sessions>
+</data>
