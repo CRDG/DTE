@@ -69,5 +69,5 @@ We gratefully acknowledge our user experience researchers: Nicholas Lobaito and 
 
 License and Copyright Information
 =================================
-All code in this project is released under the GNU General Public License v3.0
+All code in this project is released under the GNU General Public License v3.0. 
 © 2018 Mathematics Teaching and Learning to Teach (mtlt@umich.edu)
