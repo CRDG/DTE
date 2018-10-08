@@ -1,4 +1,4 @@
-Sample Kaltura Player
+Sample DTE Multimedia Player (based on Kaltura's player)
 =======================
 
 This sample video player can be used to play Kaltura hosted videos while displaying complementary resources (i.e. presentations & handouts). The video player offers a video library interface to organize multiple videos into respective subsections which allows users to navigate to related videos with ease.
